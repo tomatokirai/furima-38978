@@ -8,7 +8,7 @@
 | email                  | string | null: false, unique: true |
 | encrypted_password     | string | null: false               |
 | first_name             | string | null: false               |
-| last_ name             | string | null: false               |
+| last_name             | string | null: false               |
 | first_name_kana        | string | null: false               |
 | last_name_kana         | string | null: false               |
 | birth_day              | date   | null: false               |
@@ -30,7 +30,7 @@
 | situation_id       | integer         | null: false                     |
 | shipping_id        | integer         | null: false                     |
 | delivery_area_id   | integer         | null: false                     |
-| delivery_days_id   | integer         | null: false                     |
+| delivery_day_id   | integer         | null: false                     |
 
 ## association
 
