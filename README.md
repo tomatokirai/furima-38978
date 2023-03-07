@@ -15,8 +15,8 @@
 
 ## association
 
-  has_many:items
-  has_many:purchase_records
+  has_many :items
+  has_many :purchase_records
 
 ## items テーブル
 
@@ -34,8 +34,8 @@
 
 ## association
 
-belongs_to:user
-has_one:purchase_record
+belongs_to :user
+has_one :purchase_record
 
 ## purchase_records テーブル
 
@@ -46,9 +46,9 @@ has_one:purchase_record
  
  ## association
 
-belongs_to:user
-belongs_to:item
-has_one:shipping_address
+belongs_to :user
+belongs_to :item
+has_one: shipping_address
 
 ## shipping_addresses テーブル
 
@@ -64,4 +64,4 @@ has_one:shipping_address
  
 ## association
 
-belongs_to:purchase_record
+belongs_to :purchase_record
