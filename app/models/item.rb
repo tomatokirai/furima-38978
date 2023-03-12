@@ -9,7 +9,7 @@ class Item < ApplicationRecord
   belongs_to :delivery_area
   belongs_to :delivery_day
 
-  validates :user_id, presence: true
+  
   validates :name, presence: true
   validates :item_text, presence: true
   validates :category_id, numericality: { other_than: 0 , message: "can't be blank"} 
