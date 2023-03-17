@@ -1,24 +1,15 @@
 class PurchaseRecordsController < ApplicationController
-
+  before_action :set_item, only: [:index, :create]
+  before_action :authenticate_user!, except: [:show]
 
   def index
     @order_form = OrderForm.new
-    @item = Item.find(params[:item_id])
-    if user_signed_in?
       if current_user.id == @item.user.id || @item.purchase_record
         redirect_to root_path
       end
-    else
-      redirect_to root_path
-    end
-      
   end
-  # def new
-  #   @order_form = OrderForm.new
-  # end
 
   def create
-    @item = Item.find(params[:item_id])
     @order_form = OrderForm.new(purchase_record_params)
     if @order_form.valid?
       pay_item
@@ -42,6 +33,10 @@ class PurchaseRecordsController < ApplicationController
       card: purchase_record_params[:token],
       currency: 'jpy'
     )
+  end
+
+  def set_item
+    @item = Item.find(params[:item_id])
   end
 
 end
