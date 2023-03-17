@@ -4,6 +4,14 @@ class PurchaseRecordsController < ApplicationController
   def index
     @order_form = OrderForm.new
     @item = Item.find(params[:item_id])
+    if user_signed_in?
+      if current_user.id == @item.user.id || @item.purchase_record
+        redirect_to root_path
+      end
+    else
+      redirect_to root_path
+    end
+      
   end
   # def new
   #   @order_form = OrderForm.new
