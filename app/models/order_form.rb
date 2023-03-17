@@ -1,8 +1,9 @@
 class OrderForm
   include ActiveModel::Model
-  attr_accessor :user_id, :item_id, :post_cord, :delivery_area_id, :municipality, :address, :building_name, :phone_number
+  attr_accessor :user_id, :item_id, :post_cord, :delivery_area_id, :municipality, :address, :building_name, :phone_number, :token
 
   with_options presence: true do
+    validates :token
     validates :user_id
     validates :item_id
     validates :post_cord, format: {with: /\A[0-9]{3}-[0-9]{4}\z/, message: "is invalid. Include hyphen(-)"}

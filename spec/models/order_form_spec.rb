@@ -14,6 +14,9 @@ RSpec.describe OrderForm, type: :model do
         @order_form.building_name = ''
         expect(@order_form).to be_valid
       end
+      it "priceとtokenがあれば保存ができること" do
+        expect(@order_form).to be_valid
+      end
 
     end
 
@@ -72,6 +75,11 @@ RSpec.describe OrderForm, type: :model do
         @order_form.phone_number = 123123123-3
         @order_form.valid?
         expect(@order_form.errors.full_messages).to include("Phone number is invalid")
+      end
+      it "tokenが空では登録できないこと" do
+        @order_form.token = nil
+        @order_form.valid?
+        expect(@order_form.errors.full_messages).to include("Token can't be blank")
       end
     end
   end
