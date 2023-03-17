@@ -8,6 +8,7 @@ class Item < ApplicationRecord
   belongs_to :shipping
   belongs_to :delivery_area
   belongs_to :delivery_day
+  has_one :purchase_record
 
   
   validates :name, presence: true
